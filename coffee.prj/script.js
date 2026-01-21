@@ -1,10 +1,10 @@
 const products = [
-    { id: 1, name: 'HOT COFFEE', price: 120, img: 'image/coffee.png' },
-    { id: 2, name: 'COLD COFFEE', price: 180, img: 'image/cold coffee.png' },
-    { id: 3, name: 'FRESH JUICE', price: 195, img: 'image/fresh juice.png' },
-    { id: 4, name: 'VADAI', price: 210, img: 'image/vadai.png' },
-    { id: 5, name: 'PAANI POORI', price: 240, img: 'image/pani poori.png' },
-    { id: 6, name: 'SAMOSA', price: 150, img: 'image/samosa.png' }
+    { id: 1, name: 'HOT COFFEE', price: 79, img: 'image/coffee.png' },
+    { id: 2, name: 'COLD COFFEE', price: 199, img: 'image/cold coffee.png' },
+    { id: 3, name: 'FRESH JUICE', price: 199, img: 'image/fresh juice.png' },
+    { id: 4, name: 'VADAI', price: 49, img: 'image/vadai.png' },
+    { id: 5, name: 'PAANI POORI', price: 99, img: 'image/pani poori.png' },
+    { id: 6, name: 'SAMOSA', price: 49, img: 'image/samosa.png' }
 ];
 
 let cart = [];
