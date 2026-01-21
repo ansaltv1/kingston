@@ -1,5 +1,5 @@
 const products = [
-    { id: 1, name: 'Hot Espresso', price: 120, img: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=300' },
+    { id: 1, name: 'Hot Espresso', price: 120, img: 'coffee.png' },
     { id: 2, name: 'Cappuccino', price: 180, img: 'https://images.unsplash.com/photo-1534778101976-62847782c213?w=300' },
     { id: 3, name: 'Caramel Latte', price: 195, img: 'https://images.unsplash.com/photo-1570968865863-94660cee104c?w=300' },
     { id: 4, name: 'Iced Americano', price: 210, img: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300' },
