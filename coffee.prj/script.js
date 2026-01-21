@@ -1,10 +1,10 @@
 const products = [
     { id: 1, name: 'HOT COFFEE', price: 120, img: 'image/coffee.png' },
-    { id: 2, name: 'COLD COFFEE', price: 180, img: 'https://images.unsplash.com/photo-1534778101976-62847782c213?w=300' },
-    { id: 3, name: 'FRESH JUICE', price: 195, img: 'https://images.unsplash.com/photo-1570968865863-94660cee104c?w=300' },
-    { id: 4, name: 'VADAI', price: 210, img: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300' },
-    { id: 5, name: 'PAANI POORI', price: 240, img: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=300' },
-    { id: 6, name: 'SAMOSA', price: 150, img: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=300' }
+    { id: 2, name: 'COLD COFFEE', price: 180, img: 'image/cold coffee.png' },
+    { id: 3, name: 'FRESH JUICE', price: 195, img: 'image/fresh juice.png' },
+    { id: 4, name: 'VADAI', price: 210, img: 'image/vadai.png' },
+    { id: 5, name: 'PAANI POORI', price: 240, img: 'image/pani poori.png' },
+    { id: 6, name: 'SAMOSA', price: 150, img: 'image/samosa.png' }
 ];
 
 let cart = [];
