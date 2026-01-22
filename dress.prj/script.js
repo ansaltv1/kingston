@@ -1,11 +1,9 @@
 // Function to handle category navigation
-function navigateTo(category) {
-    // This builds the path: wwwwwwwwwww/male/, etc.
-    const path = `wwwwwwwwwww/${category}/`;
+function navigateTo(path) {
+    // Removed the "wwwwww" prefix to ensure the path works correctly
+    console.log("Opening collection: " + path);
     
-    console.log("Opening premium collection: " + category);
-    
-    // Redirects the user to that folder path
+    // Redirects the user to the specific folder/file
     window.location.href = path;
 }
 
