@@ -1,5 +1,5 @@
 :root {
-    --gold: #D4AF37;
+    --gold: #ffffff;
     --dark: #121212;
     --light: #8fb7dd;
 }
@@ -116,8 +116,8 @@ header {
 .shop-btn {
     background: var(--gold);
     border: none;
-    padding: 12px 25px;
-    color: white;
+    padding: 15px 25px;
+    color: rgb(0, 0, 0);
     font-weight: bold;
     border-radius: 5px;
     cursor: pointer;
@@ -125,6 +125,6 @@ header {
 }
 
 .shop-btn:hover {
-    background: white;
+    background: rgb(0, 0, 0);
     color: var(--dark);
 }
