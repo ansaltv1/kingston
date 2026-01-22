@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>King of Fashion | Premium Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="contact-bar">
+        <span>📞 6282753288</span>
+        <span>📍 Kurumpanai, Kanyakumari, Tamil Nadu</span>
+    </div>
+
+    <header>
+        <div class="logo">KING OF FASHION 👑</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#categories">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="categories" class="category-section">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            
+            <div class="category-card" onclick="navigateTo('male')">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=500" alt="Male">
+                <div class="overlay">
+                    <h3>MALE 👔</h3>
+                    <button class="shop-btn">SHOP NOW</button>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="navigateTo('female')">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=500" alt="Female">
+                <div class="overlay">
+                    <h3>FEMALE 👗</h3>
+                    <button class="shop-btn">SHOP NOW</button>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="navigateTo('boys')">
+                <img src="https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?q=80&w=500" alt="Boys">
+                <div class="overlay">
+                    <h3>BOYS 👕</h3>
+                    <button class="shop-btn">SHOP NOW</button>
+                </div>
+            </div>
+
+            <div class="category-card" onclick="navigateTo('girls')">
+                <img src="https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?q=80&w=500" alt="Girls">
+                <div class="overlay">
+                    <h3>GIRLS 👚</h3>
+                    <button class="shop-btn">SHOP NOW</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 King of Fashion. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
