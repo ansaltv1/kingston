@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Give Like a King | Official Trust</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav>
+        <div class="logo">GIVE LIKE A <span class="gold">KING</span></div>
+        <div class="contact-top">
+            <span>Support: <strong>+91 6282753288</strong></span>
+        </div>
+        <button class="btn-crown">Crown Membership</button>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Empowering Dreams. <br>Building Legacies.</h1>
+            <p>Official Helpline: 6282753288</p>
+        </div>
+        <div class="slant-bg"></div>
+    </header>
+
+    <section class="main-container">
+        <div class="giving-card card">
+            <h3>Select Your Royal Cause</h3>
+            <div class="cause-grid">
+                <label class="cause-opt">
+                    <input type="radio" name="cause" value="food" checked onclick="updateUI()">
+                    <div class="cause-box">
+                        <img src="https://img.icons8.com/ios-filled/40/0a192f/restaurant.png" alt="Food">
+                        <span>Food Relief</span>
+                        <small>₹50/Meal</small>
+                    </div>
+                </label>
+                <label class="cause-opt">
+                    <input type="radio" name="cause" value="dress" onclick="updateUI()">
+                    <div class="cause-box">
+                        <img src="https://img.icons8.com/ios-filled/40/0a192f/shirt.png" alt="Dress">
+                        <span>Clothing</span>
+                        <small>₹350/Kit</small>
+                    </div>
+                </label>
+                <label class="cause-opt">
+                    <input type="radio" name="cause" value="education" onclick="updateUI()">
+                    <div class="cause-box">
+                        <img src="https://img.icons8.com/ios-filled/40/0a192f/graduation-cap.png" alt="Education">
+                        <span>Education</span>
+                        <small>₹500/Support</small>
+                    </div>
+                </label>
+            </div>
+
+            <div class="amount-input-box">
+                <span class="currency">₹</span>
+                <input type="number" id="manualAmount" value="1500" oninput="updateUI()">
+            </div>
+            <p id="outcomeDisplay">👑 Providing approx. 30 Nutritious Meals</p>
+
+            <div class="qr-container">
+                <div id="qrcode"></div>
+                <div class="qr-footer">
+                    <p>Scan with GPay, PhonePe, or Paytm</p>
+                    <div class="pay-icons">
+                        <img src="https://img.icons8.com/color/24/google-pay-india.png">
+                        <img src="https://img.icons8.com/color/24/phonepe.png">
+                        <img src="https://img.icons8.com/color/24/paytm.png">
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-submit" id="confirmPay">I Have Completed Payment</button>
+        </div>
+
+        <div class="info-sidebar">
+            <div class="feed-card card">
+                <h3>Live Impact Feed</h3>
+                <ul id="liveFeed">
+                    <li>● A King from Mumbai donated ₹5,000</li>
+                    <li>● Anonymous Queen donated ₹1,500</li>
+                </ul>
+            </div>
+
+            <div class="contact-card card">
+                <h3>Trust Contact</h3>
+                <p>For 80G Receipts or Queries:</p>
+                <a href="tel:6282753288" class="phone-link">📞 6282753288</a>
+                <p class="sub-text">Available 10 AM - 7 PM (Mon-Sat)</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="transparency-bar">
+        <div class="badge">Verified by NGO Darpan</div>
+        <div class="badge">Income Tax Registered (80G)</div>
+        <div class="badge">Helpline: 6282753288</div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
