@@ -1,0 +1,94 @@
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Arial Black', sans-serif;
+}
+
+body {
+    background: #76b2ca;
+    color: white;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#fireworksCanvas {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 1;
+}
+
+/* Intro Title Animation */
+#mainTitle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: #013326;
+    text-transform:  0 0 15px #03303a;
+    z-index: 10;
+    animation: moveAndGrow 2.5s ease-in-out forwards;
+}
+
+@keyframes moveAndGrow {
+    0% { bottom: 20px; right: 20px; font-size: 1.5rem; }
+    100% { 
+        bottom: 90%; /* Move to top center area */
+        right: 50%;
+        transform: translateX(50%);
+        font-size: 5rem;
+    }
+}
+
+/* Hidden Content Styles */
+.main-content {
+    opacity: 0;
+    transition: opacity 1.5s ease-in;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Keeps projects at bottom */
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.show { opacity: 1 !important; }
+
+/* Components */
+.profile-corner { position: absolute; top: 30px; right: 30px; }
+.profile-corner img { width: 130px; border: 3px solid #00d4ff; border-radius: 20px; }
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.skill {
+    background: rgba(255,255,255,0.1);
+    padding: 15px 25px;
+    border: 1px solid #00d4ff;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.project-card {
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-top: 4px solid #00d4ff;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 10px 30px;
+    background: #00d4ff;
+    border: none; cursor: pointer; font-weight: bold;
+}
