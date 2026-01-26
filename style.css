@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem; color: #0084ff;
+    font-size: 3rem; color: #81033e;
     z-index: 100;
     animation: moveAndGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -73,7 +73,7 @@ body {
 }
 
 .wedge:hover {
-    background: #0056b3;
+    background: #0b533e;
     /* Lift out effect on hover */
     transform: rotate(calc((var(--i) - 3.5) * 30deg)) translateY(-30px);
 }
