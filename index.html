@@ -4,36 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANSAL KINGSTON | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <canvas id="fireworksCanvas"></canvas>
 
-    <div class="intro-overlay">
-        <h1 id="mainTitle">ANSAL KINGSTON</h1>
-    </div>
+    <h1 id="mainTitle">ANSAL KINGSTON</h1>
 
     <div class="main-content" id="portfolioContent">
-        <div class="profile-corner">
-            <img src="me.jpg" alt="Ansal Kingston"> 
-        </div>
+        
+        <div class="sunburst-container">
+            <div class="dotted-path"></div>
 
-        <div class="skills-grid">
-            <div class="skill">HTML</div><div class="skill">CSS</div><div class="skill">JS</div>
-            <div class="skill">React</div><div class="skill">Node</div><div class="skill">Python</div>
-            <div class="skill">UI/UX</div><div class="skill">SQL</div><div class="skill">Git</div>
-        </div>
-
-        <footer class="project-spotlight">
-            <div class="project-card">
-                <h3>FEATURED PROJECT</h3>
-                <p>Innovative Web Solutions</p>
-                <button class="btn">Explore Now</button>
+            <div class="wedge" style="--i: 1;">
+                <div class="wedge-content">
+                    <div class="icon">💡</div>
+                    <h3>WEB DEV</h3>
+                    <p>Modern websites & apps</p>
+                </div>
             </div>
-        </footer>
+            <div class="wedge" style="--i: 2;">
+                <div class="wedge-content">
+                    <div class="icon">🛒</div>
+                    <h3>WEB DEV</h3>
+                    <p>Modern websites & stores</p>
+                </div>
+            </div>
+            <div class="wedge" style="--i: 3;">
+                <div class="wedge-content">
+                    <div class="icon">🎨</div>
+                    <h3>UI/UX DESIGN</h3>
+                    <p>Intuitive interfaces</p>
+                </div>
+            </div>
+            <div class="wedge" style="--i: 4;">
+                <div class="wedge-content">
+                    <div class="icon">📱</div>
+                    <h3>MOBILE APPS</h3>
+                    <p>iOS & Android solutions</p>
+                </div>
+            </div>
+            <div class="wedge" style="--i: 5;">
+                <div class="wedge-content">
+                    <div class="icon">💾</div>
+                    <h3>BACKEND & API</h3>
+                    <p>Robust server systems</p>
+                </div>
+            </div>
+            <div class="wedge" style="--i: 6;">
+                <div class="wedge-content">
+                    <div class="icon">🧠</div>
+                    <h3>AI/ML PROJECTS</h3>
+                    <p>Intelligent algorithms</p>
+                </div>
+            </div>
+
+            <div class="central-dome">
+                <div class="dome-text">
+                    <h2>ANSAL</h2>
+                    <h2>PROJECT DESIGN</h2>
+                    <div class="blue-dots"><span></span><span></span><span></span><span></span><span></span></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 
     <script src="script.js"></script>
 </body>

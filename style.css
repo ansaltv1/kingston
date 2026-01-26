@@ -1,94 +1,121 @@
 * {
     margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Arial Black', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background: #76b2ca;
-    color: white;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: #f8f9fa; /* Light background to match image */
+    color: #333;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 #fireworksCanvas {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: 1;
+    position: fixed;
+    top: 0; left: 0; z-index: 1; pointer-events: none;
 }
 
 /* Intro Title Animation */
 #mainTitle {
-    position: absolute;
-    bottom: 20px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: #013326;
-    text-transform:  0 0 15px #03303a;
-    z-index: 10;
-    animation: moveAndGrow 2.5s ease-in-out forwards;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem; color: #0084ff;
+    z-index: 100;
+    animation: moveAndGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes moveAndGrow {
-    0% { bottom: 20px; right: 20px; font-size: 1.5rem; }
-    100% { 
-        bottom: 90%; /* Move to top center area */
-        right: 50%;
-        transform: translateX(50%);
-        font-size: 5rem;
-    }
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    100% { top: 40px; transform: translate(-50%, 0) scale(1.2); }
 }
 
-/* Hidden Content Styles */
 .main-content {
     opacity: 0;
-    transition: opacity 1.5s ease-in;
-    z-index: 5;
-    width: 100%;
-    height: 100%;
+    transition: opacity 1.5s ease;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Keeps projects at bottom */
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    padding-bottom: 0;
+}
+
+.main-content.show { opacity: 1; }
+
+/* Sunburst Container - Acts as the anchor point */
+.sunburst-container {
+    position: relative;
+    width: 600px; /* Increased width for better spacing */
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 auto;
+}
+
+/* Wedge Shapes */
+.wedge {
+    position: absolute;
+    bottom: 0; /* Anchored at the bottom center */
+    width: 300px;
+    height: 400px;
+    background: #0084ff;
+    /* Improved clip-path for a sharper wedge */
+    clip-path: polygon(50% 100%, 15% 0%, 85% 0%);
+    transform-origin: bottom center;
+    
+    /* Precise rotation: -75deg to +75deg spread */
+    transform: rotate(calc((var(--i) - 3.5) * 30deg));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.wedge:hover {
+    background: #0056b3;
+    /* Lift out effect on hover */
+    transform: rotate(calc((var(--i) - 3.5) * 30deg)) translateY(-30px);
+}
+
+.wedge-content {
+    position: absolute;
+    top: 30px; /* Moves text toward the outer edge */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    width: 120px;
+}
+
+/* Central Dome - Perfectly centered on the rotation point */
+.central-dome {
+    position: absolute;
+    bottom: -100px; /* Half-buried to create the semi-circle look */
+    width: 300px;
+    height: 300px;
+    background: white;
+    border-radius: 50%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    padding-bottom: 50px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
 }
 
-.show { opacity: 1 !important; }
-
-/* Components */
-.profile-corner { position: absolute; top: 30px; right: 30px; }
-.profile-corner img { width: 130px; border: 3px solid #00d4ff; border-radius: 20px; }
-
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 40px;
-}
-
-.skill {
-    background: rgba(255,255,255,0.1);
-    padding: 15px 25px;
-    border: 1px solid #00d4ff;
+.dome-text {
     text-align: center;
-    border-radius: 5px;
+    margin-top: -80px; /* Adjust text so it's visible in the top half */
 }
 
-.project-card {
-    background: rgba(255,255,255,0.05);
-    padding: 40px;
-    border-top: 4px solid #00d4ff;
-    width: 500px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,212,255,0.3);
-}
-
-.btn {
-    margin-top: 20px;
-    padding: 10px 30px;
-    background: #00d4ff;
-    border: none; cursor: pointer; font-weight: bold;
+/* Dotted Path - Aligned to the wedges */
+.dotted-path {
+    position: absolute;
+    bottom: 0;
+    width: 700px;
+    height: 350px;
+    border: 2px dashed #0084ff;
+    border-radius: 350px 350px 0 0;
+    z-index: 5;
+    opacity: 0.3;
 }
