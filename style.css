@@ -20,7 +20,7 @@ body {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 3rem; color: #81033e;
+    font-size: 3rem; color: #ff0077;
     z-index: 100;
     animation: moveAndGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -119,3 +119,6 @@ body {
     z-index: 5;
     opacity: 0.3;
 }
+
+
+

@@ -1,0 +1,130 @@
+/* Reset and Globals */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+/* 1. MAKE UNSCROLLABLE */
+body { 
+    background: #f8f9fa; 
+    color: #333; 
+    overflow: hidden; /* Disables scrolling */
+    height: 100vh; 
+    width: 100vw;
+}
+
+#fireworksCanvas { position: fixed; top: 0; left: 0; z-index: 1; pointer-events: none; }
+
+/* Combined Layout */
+.page-layout { display: flex; align-items: center; height: 100vh; width: 100%; position: relative; z-index: 2; }
+
+/* Sidebar Styles (30%) */
+.content-sidebar { width: 30vw; min-width: 280px; padding: 2rem; }
+.sidebar-title { font-size: 1.8rem; margin-bottom: 0.5rem; }
+.sidebar-desc { color: #666; font-style: italic; margin-bottom: 2rem; }
+.opt-row { display: flex; margin-bottom: 12px; color: white; transition: transform 0.3s ease; }
+.num { padding: 15px 25px; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; }
+.arrow { flex-grow: 1; padding: 15px; display: flex; align-items: center; clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%); }
+.teal .num { background: #006d5b; } .teal .arrow { background: #00a88f; }
+.blue .num { background: #004b8d; } .blue .arrow { background: #0060b4; }
+.orange .num { background: #d37000; } .orange .arrow { background: #f39c12; }
+.green .num { background: #2d7d32; } .green .arrow { background: #4caf50; }
+
+/* Sunburst Styles - MODIFIED FOR HALF CIRCLE AT BOTTOM */
+.main-content { 
+    flex-grow: 1; 
+    opacity: 0; 
+    transition: opacity 1.5s ease; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end; /* Keeps it at the bottom */
+    height: 100vh; 
+    overflow: hidden;
+}
+.main-content.show { opacity: 1; }
+
+.sunburst-container { 
+    position: relative; 
+    width: 800px; 
+    height: 400px; /* Half the height of the full circle width */
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end;
+    margin-bottom: -50px; /* Pulls the center of the circle slightly off-screen for a cleaner edge */
+}
+
+/* 2. HALF CIRCLE WEDGES */
+.wedge { 
+    position: absolute; 
+    bottom: 0; 
+    width: 400px; 
+    height: 450px; 
+    background: #0084ff; 
+    /* Clip path adjusted for a sharper spoke look */
+    clip-path: polygon(50% 100%, 30% 0%, 70% 0%); 
+    transform-origin: bottom center; 
+    /* Spread the 6 wedges across 180 degrees (half circle) */
+    transform: rotate(calc((var(--i) - 3.5) * 30deg)); 
+    transition: all 0.4s ease; 
+    cursor: pointer; 
+    z-index: 10; 
+}
+
+.wedge:hover { 
+    background: #0b533e; 
+    transform: rotate(calc((var(--i) - 3.5) * 30deg)) translateY(-20px); 
+}
+
+.wedge-content { 
+    position: absolute; 
+    top: 60px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    text-align: center; 
+    color: white; 
+    width: 140px; 
+}
+
+/* 3. CENTRAL DOME AS SEMI-CIRCLE */
+.central-dome { 
+    position: absolute; 
+    bottom: 0; 
+    width: 360px; 
+    height: 180px; /* Half height */
+    background: white; 
+    border-radius: 200px 200px 0 0; /* Half circle radius */
+    z-index: 20; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.1); 
+}
+
+.dome-text { text-align: center; margin-top: 20px; }
+.dome-text h2 { font-size: 1.4rem; line-height: 1.2; }
+
+.dotted-path { 
+    position: absolute; 
+    bottom: 0; 
+    width: 750px; 
+    height: 375px; 
+    border: 2px dashed #0084ff; 
+    border-radius: 400px 400px 0 0; 
+    z-index: 5; 
+    opacity: 0.3; 
+}
+
+/* Intro Title Animation */
+#mainTitle { 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    font-size: 3rem; 
+    color: #ff0077; 
+    z-index: 100; 
+    animation: moveAndGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; 
+}
+
+@keyframes moveAndGrow { 
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0; } 
+    20% { opacity: 1; } 
+    100% { top: 40px; transform: translate(-50%, 0) scale(1.0); font-size: 2rem; } 
+}

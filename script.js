@@ -61,3 +61,5 @@ setTimeout(() => {
         document.getElementById('portfolioContent').classList.add('show');
     }, 2000);
 }, 1000);
+
+
