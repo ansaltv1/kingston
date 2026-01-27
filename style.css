@@ -1,48 +1,72 @@
-* {
-    margin: 0; padding: 0; box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+/* Reset and Globals */
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Poppins', sans-serif; 
 }
 
-body {
-    background: #000000;
-    color: #333;
-    overflow: hidden;
-    min-height: 100vh;
+body { 
+    background: #000000; 
+    color: #333; 
+    overflow: hidden; 
+    height: 100vh; 
+    width: 100vw;
 }
 
-#backgroundCanvas {
-    position: fixed;
-    top: 0; left: 0; z-index: 1; pointer-events: none;
+#backgroundCanvas { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 1; 
+    pointer-events: none; 
 }
 
-/* Hero Title Animation */
-#heroTitle {
-    position: fixed;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem; color: #ff0077;
-    z-index: 100;
-    animation: titleEntrance 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+/* Master Layout */
+.page-layout { 
+    display: flex; 
+    width: 100%; 
+    height: 100vh; 
+    position: relative; 
+    z-index: 2; 
 }
 
-@keyframes titleEntrance {
-    0% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-    20% { opacity: 1; }
-    100% { top: 40px; transform: translate(-50%, 0) scale(1.2); }
-}
-
-.portfolio-wrapper {
-    opacity: 0;
-    transition: opacity 1.5s ease;
+/* Sidebar Section (30%) */
+.content-sidebar { 
+    width: 30vw; 
+    min-width: 320px; 
+    padding: 3rem 2rem;
+    color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
-    height: 100vh;
 }
 
+.content-sidebar h1 { font-size: 1.8rem; margin-bottom: 0.5rem; color: #fff; }
+.content-sidebar p { color: #ccc; font-style: italic; margin-bottom: 2rem; }
+
+.options-group { width: 100%; }
+.opt-row { display: flex; margin-bottom: 15px; color: white; transition: transform 0.3s ease; cursor: pointer; }
+.num { padding: 15px 25px; font-size: 1.5rem; font-weight: bold; display: flex; align-items: center; border-radius: 5px 0 0 5px; }
+.arrow { flex-grow: 1; padding: 15px; display: flex; align-items: center; clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%); }
+
+.teal .num { background: #006d5b; } .teal .arrow { background: #00a88f; }
+.blue .num { background: #004b8d; } .blue .arrow { background: #0060b4; }
+.orange .num { background: #d37000; } .orange .arrow { background: #f39c12; }
+.green .num { background: #2d7d32; } .green .arrow { background: #4caf50; }
+
+/* Portfolio Section (70%) */
+.portfolio-wrapper { 
+    width: 70vw;
+    opacity: 0; 
+    transition: opacity 1.5s ease; 
+    display: flex; 
+    justify-content: center; 
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
 .portfolio-wrapper.is-visible { opacity: 1; }
 
-/* Navigation Orbit Container */
 .navigation-orbit {
     position: relative;
     width: 600px;
@@ -52,12 +76,11 @@ body {
     align-items: flex-end;
 }
 
-/* Service Cards (Wedges) */
 .service-card {
     position: absolute;
     bottom: 0;
-    width: 300px;
-    height: 400px;
+    width: 280px;
+    height: 380px;
     background: #0084ff;
     clip-path: polygon(50% 100%, 15% 0%, 85% 0%);
     transform-origin: bottom center;
@@ -74,7 +97,7 @@ body {
 
 .service-inner {
     position: absolute;
-    top: 30px;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -82,7 +105,6 @@ body {
     width: 120px;
 }
 
-/* Central Branding Hub */
 .brand-center-hub {
     position: absolute;
     bottom: -100px;
@@ -94,15 +116,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3);
 }
 
-.brand-content {
-    text-align: center;
-    margin-top: -80px;
-}
-
-/* Dotted Orbit Path */
+.brand-content { text-align: center; margin-top: -80px; }
 .orbit-path {
     position: absolute;
     bottom: 0;
@@ -114,8 +131,24 @@ body {
     opacity: 0.3;
 }
 
-@media screen and (max-width:600px) {
-    .navigation-orbit { width: 300px; height: 300px; }
-    .service-card { width: 150px; height: 200px; }
-    .brand-center-hub { width: 150px; height: 150px; }
+/* Hero Title Animation */
+#heroTitle {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem; color: #ff0077;
+    z-index: 100;
+    pointer-events: none;
+    animation: titleEntrance 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes titleEntrance {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    20% { opacity: 1; }
+    100% { top: 40px; transform: translate(-50%, 0) scale(0.8); }
+}
+
+@media screen and (max-width: 1024px) {
+    .page-layout { flex-direction: column; overflow-y: auto; }
+    .content-sidebar, .portfolio-wrapper { width: 100%; height: auto; }
 }

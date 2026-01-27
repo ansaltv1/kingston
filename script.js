@@ -1,29 +1,34 @@
-const canvas = document.getElementById('backgroundCanvas');
-const ctx = canvas.getContext('2d');
+document.addEventListener('DOMContentLoaded', () => {
+    // Canvas Setup
+    const canvas = document.getElementById('backgroundCanvas');
+    const ctx = canvas.getContext('2d');
 
-/**
- * Handle Window Resizing
- */
-function handleResize() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', handleResize);
-handleResize();
-
-/**
- * Initialize Portfolio Display
- */
-function initPortfolio() {
-    // Clear canvas since we removed animation
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Show the main content wrapper
-    const portfolioContainer = document.getElementById('portfolioView');
-    if (portfolioContainer) {
-        portfolioContainer.classList.add('is-visible');
+    function handleResize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
-}
+    window.addEventListener('resize', handleResize);
+    handleResize();
 
-// Run the initialization
-initPortfolio();
+    // Initialize View
+    function initView() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const portfolio = document.getElementById('portfolioView');
+        if (portfolio) {
+            portfolio.classList.add('is-visible');
+        }
+    }
+
+    // Sidebar Row Interactivity
+    const rows = document.querySelectorAll('.opt-row');
+    rows.forEach(row => {
+        row.addEventListener('mouseenter', () => {
+            row.style.transform = 'translateX(10px) scale(1.02)';
+        });
+        row.addEventListener('mouseleave', () => {
+            row.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+
+    initView();
+});
