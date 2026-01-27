@@ -4,83 +4,77 @@
 }
 
 body {
-    background: #f8f9fa; /* Light background to match image */
+    background: #000000;
     color: #333;
-    overflow-x: hidden;
+    overflow: hidden;
     min-height: 100vh;
 }
 
-#fireworksCanvas {
+#backgroundCanvas {
     position: fixed;
     top: 0; left: 0; z-index: 1; pointer-events: none;
 }
 
-/* Intro Title Animation */
-#mainTitle {
+/* Hero Title Animation */
+#heroTitle {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem; color: #ff0077;
     z-index: 100;
-    animation: moveAndGrow 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: titleEntrance 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-@keyframes moveAndGrow {
+@keyframes titleEntrance {
     0% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
     20% { opacity: 1; }
     100% { top: 40px; transform: translate(-50%, 0) scale(1.2); }
 }
 
-.main-content {
+.portfolio-wrapper {
     opacity: 0;
     transition: opacity 1.5s ease;
     display: flex;
     justify-content: center;
     align-items: flex-end;
     height: 100vh;
-    padding-bottom: 0;
 }
 
-.main-content.show { opacity: 1; }
+.portfolio-wrapper.is-visible { opacity: 1; }
 
-/* Sunburst Container - Acts as the anchor point */
-.sunburst-container {
+/* Navigation Orbit Container */
+.navigation-orbit {
     position: relative;
-    width: 600px; /* Increased width for better spacing */
+    width: 600px;
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin: 0 auto;
 }
 
-/* Wedge Shapes */
-.wedge {
+/* Service Cards (Wedges) */
+.service-card {
     position: absolute;
-    bottom: 0; /* Anchored at the bottom center */
+    bottom: 0;
     width: 300px;
     height: 400px;
     background: #0084ff;
-    /* Improved clip-path for a sharper wedge */
     clip-path: polygon(50% 100%, 15% 0%, 85% 0%);
     transform-origin: bottom center;
-    
-    /* Precise rotation: -75deg to +75deg spread */
     transform: rotate(calc((var(--i) - 3.5) * 30deg));
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
     z-index: 10;
 }
 
-.wedge:hover {
+.service-card:hover {
     background: #0b533e;
-    /* Lift out effect on hover */
     transform: rotate(calc((var(--i) - 3.5) * 30deg)) translateY(-30px);
 }
 
-.wedge-content {
+.service-inner {
     position: absolute;
-    top: 30px; /* Moves text toward the outer edge */
+    top: 30px;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -88,10 +82,10 @@ body {
     width: 120px;
 }
 
-/* Central Dome - Perfectly centered on the rotation point */
-.central-dome {
+/* Central Branding Hub */
+.brand-center-hub {
     position: absolute;
-    bottom: -100px; /* Half-buried to create the semi-circle look */
+    bottom: -100px;
     width: 300px;
     height: 300px;
     background: white;
@@ -103,13 +97,13 @@ body {
     box-shadow: 0 -10px 40px rgba(0,0,0,0.1);
 }
 
-.dome-text {
+.brand-content {
     text-align: center;
-    margin-top: -80px; /* Adjust text so it's visible in the top half */
+    margin-top: -80px;
 }
 
-/* Dotted Path - Aligned to the wedges */
-.dotted-path {
+/* Dotted Orbit Path */
+.orbit-path {
     position: absolute;
     bottom: 0;
     width: 700px;
@@ -120,5 +114,8 @@ body {
     opacity: 0.3;
 }
 
-
-
+@media screen and (max-width:600px) {
+    .navigation-orbit { width: 300px; height: 300px; }
+    .service-card { width: 150px; height: 200px; }
+    .brand-center-hub { width: 150px; height: 150px; }
+}
