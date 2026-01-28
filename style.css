@@ -159,12 +159,7 @@ body {
 
 
 
-
-
-
-
-
-
+a { color:white; text-decoration:none; }
 
 /* Container to pin everything to the corner */
 .top-right-anchor {
