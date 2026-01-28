@@ -10,14 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // Initialize View
-    function initView() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const portfolio = document.getElementById('portfolioView');
-        if (portfolio) {
-            portfolio.classList.add('is-visible');
-        }
-    }
+
+        }    
 
     // Sidebar Row Interactivity
     const rows = document.querySelectorAll('.opt-row');
@@ -32,3 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initView();
 });
+
+// Fixed the ID here to match "portfolioView"
+window.onload = () => {
+    const portfolio = document.getElementById('portfolioView');
+    if(portfolio) portfolio.style.opacity = 1;
+};
