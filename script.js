@@ -1,34 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Canvas Setup
-    const canvas = document.getElementById('backgroundCanvas');
-    const ctx = canvas.getContext('2d');
+    const portfolio = document.getElementById('portfolioView');
+    
+    // Trigger entrance visibility
+    setTimeout(() => {
+        if (portfolio) portfolio.classList.add('is-visible');
+    }, 500);
 
-    function handleResize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    // Initialize View
-    function initView() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        const portfolio = document.getElementById('portfolioView');
-        if (portfolio) {
-            portfolio.classList.add('is-visible');
-        }
-    }
-
-    // Sidebar Row Interactivity
+    // Sidebar interactivity
     const rows = document.querySelectorAll('.opt-row');
     rows.forEach(row => {
         row.addEventListener('mouseenter', () => {
-            row.style.transform = 'translateX(10px) scale(1.02)';
+            row.style.transform = 'translateX(-10px)';
         });
         row.addEventListener('mouseleave', () => {
-            row.style.transform = 'translateX(0) scale(1)';
+            row.style.transform = 'translateX(0)';
         });
     });
-
-    initView();
 });

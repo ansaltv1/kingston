@@ -163,7 +163,7 @@ body {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 65px; color: #00aeff;
+    font-size: 65px; color: #033a53;
     z-index: 100;
     pointer-events: none;
     animation: titleEntrance 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
